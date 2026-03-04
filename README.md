@@ -1,4 +1,3 @@
-# MotivaQuiz
 # MotivaQuiz - ICT Learning Platform
 
 ## 🚀 Quick Start Guide
