@@ -47,5 +47,6 @@ function goHome() {
 
 function startLesson(lessonNumber) {
     localStorage.setItem('currentLesson', lessonNumber);
-    window.location.href = 'round1.html';
+   if (lessonNumber === 1) { window.location.href = 'round1.html';}
+   else if (lessonNumber === 2) {  window.location.href = 'lesson2-intro.html';}
 }
