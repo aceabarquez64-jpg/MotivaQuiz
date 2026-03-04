@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('motivaUser', JSON.stringify(user));
 
             alert("Account created successfully! Please log in.");
-            window.location.href = 'Login (1).html';
+            window.location.href = 'login.html';
         });
     }
+
 });
