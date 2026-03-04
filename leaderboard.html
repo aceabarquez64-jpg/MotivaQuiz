@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuiz - Leaderboard</title>
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MOTIVAQUIZ</div>
+        <div class="topic-title">GLOBAL LEADERBOARD</div>
+        <div class="user-stats">Points: <span id="headerPoints">0</span></div>
+    </div>
+
+    <div class="leaderboard-container">
+        <div class="page-header">
+            <h1>🏆 Top Scholars</h1>
+            <p>Compete with other students to reach the top rank!</p>
+            <button class="back-btn" onclick="goBack()">⬅ Back to Dashboard</button>
+        </div>
+
+        <div class="board-wrapper">
+            <div class="board-header">
+                <span class="col-rank">Rank</span>
+                <span class="col-name">Student Name</span>
+                <span class="col-points">Total Points</span>
+            </div>
+            <div class="board-list" id="leaderboardList">
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+
+    <script src="leaderboard.js"></script>
+</body>
+</html>

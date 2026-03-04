@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuiz - Round 1 Review</title>
+    <link rel="stylesheet" href="round1review.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MOTIVAQUIZ</div>
+        <div class="topic-title">INTRODUCTION TO COMPUTER HARDWARE</div>
+        <div class="user-stats">Rank #<span id="userRank">1</span> - Points: <span id="userPoints">0</span></div>
+    </div>
+
+    <div class="review-container">
+        <h1 class="review-title">Round 1 Review - Multiple Choice</h1>
+
+        <table class="review-table">
+            <thead>
+                <tr>
+                    <th>Questions</th>
+                    <th>Your Answer</th>
+                    <th>Your Result</th>
+                    <th>Study Tip</th>
+                </tr>
+            </thead>
+            <tbody id="reviewTableBody"></tbody>
+        </table>
+
+        <div class="action-buttons">
+            <button class="action-btn dashboard-btn" onclick="goToDashboard()">Home</button>
+            <button class="action-btn continue-btn" onclick="retakeRound()">Retake round</button>
+            <button class="action-btn continue-btn" id="advanceBtn" onclick="continueToRound2()" style="display:none;">Advance to next round</button>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY - BULACAO CAMPUS
+    </footer>
+
+    <script src="round1review.js"></script>
+</body>
+</html>

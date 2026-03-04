@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MotivaQuiz - Performance Summary</title>
+    <link rel="stylesheet" href="quizsummary.css">
+    
+</head>
+<body>
+    <div class="container">
+       
+        <div class="header-card">
+            <div class="user-section">
+                <div class="user-avatar">👶</div>
+                <div class="user-info">
+                    <h1>Quiz Performance Summary</h1>
+                    <p>Your Learning Progress and Accuracy</p>
+                    <div class="rank-badge" id="rankBadge">ICT APPRENTICE</div>
+                    <div class="user-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">RANK</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="userPoints">0</div>
+                            <div class="stat-label">POINTS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accuracy-section">
+                <h3>Overall Accuracy</h3>
+                <div class="accuracy-value" id="overallAccuracy">0%</div>
+                <div class="quizzes-count">
+                    <p>Total Quizzes<br>Completed</p>
+                    <div class="count" id="totalQuizzes">0</div>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="content-grid">
+          
+            <div class="card">
+                <h2>Performance in 5 Lessons</h2>
+                <div class="chart-container" id="chartContainer">
+                </div>
+            </div>
+
+           
+            <div class="card">
+                <h2>Performance Breakdown</h2>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Lesson</th>
+                            <th>Accuracy</th>
+                            <th>Best Round</th>
+                        </tr>
+                    </thead>
+                    <tbody id="performanceTableBody">
+                        <tr>
+                            <td>Introduction of Computer Hardware</td>
+                            <td>0%</td>
+                            <td>Multiple Choice</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+           
+            <div class="card recommendations-card">
+                <div class="recommendation-text" id="recommendationText">
+                    You perform in multiple choice rounds, review identification type questions to improve consistency.
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="action-buttons">
+            <button class="action-btn filter-btn" onclick="openFilterModal()">🔍 Filter Topics</button>
+            <button class="action-btn export-btn" onclick="exportReport()">📥 Export Report</button>
+            <button onclick="document.location= 'homepage (1).html'" class="action-btn homepage-btn">Dashboard</button>
+        </div>
+    </div>
+
+   
+    <div class="modal" id="filterModal">
+        <div class="modal-content">
+            <h2>Filter Performance Data</h2>
+            <div class="filter-group">
+                <label>Topic</label>
+                <select id="topicFilter">
+                    <option value="hardware">Topic 1: Computer Hardware</option>
+                    <option value="networking">Topic 2: Networking</option>
+                    <option value="programming">Topic 3: Programming</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Rank Level</label>
+                <select id="rankFilter">
+                    <option value="1">Rank 1: ICT Apprentice</option>
+                    <option value="2">Rank 2: ICT Intermediate</option>
+                    <option value="3">Rank 3: ICT Advanced</option>
+                    <option value="4">Rank 4: ICT Expert</option>
+                    <option value="5">Rank 5: ICT Master</option>
+                </select>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn filter-btn" onclick="closeFilterModal()">Cancel</button>
+                <button class="action-btn homepage-btn" onclick="applyFilter()">Apply Filter</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+
+    <script src="quizsummary.js"></script>
+</body>
+</html>

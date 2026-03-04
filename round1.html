@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MotivaQuiz - Round 1</title>
+    <link rel="stylesheet" href="round1.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MOTIVAQUIZ</div>
+        <div class="topic-title">INTRODUCTION TO COMPUTER HARDWARE</div>
+        <div class="user-stats">Rank #<span id="userRank">100</span> - Points: <span id="userPoints">0</span></div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="performance-bar">
+            <div class="stat-item">
+                <div class="stat-label">Accuracy</div>
+                <div class="stat-value" id="accuracy">0%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Avg Time</div>
+                <div class="stat-value" id="avgTime">0s</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Streak</div>
+                <div class="stat-value" id="streak">0</div>
+            </div>
+        </div>
+
+        <div class="quiz-info">
+            <div class="question-counter">
+                <span id="currentQuestion">1</span> of <span id="totalQuestions">3</span>
+            </div>
+            <div class="timer">
+                <span class="timer-icon">⏰</span>
+                <span id="timeRemaining">03:00</span>
+            </div>
+            <div class="round-info">Round 1: Easy - Multiple Choice</div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text" id="questionText">
+                Loading question...
+            </div>
+
+            <div class="options-grid" id="optionsGrid">
+                </div>
+
+            <div class="feedback-message" id="feedbackMessage"></div>
+
+            <div class="button-group">
+                <button class="home-btn" onclick="goHome()">🏠 Home</button>
+                <button class="submit-btn" id="submitBtn" onclick="showConfidenceCheck()" disabled>Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confidenceModal">
+        <div class="modal-content">
+            <h3>How confident do you feel<br>right now?</h3>
+            <div class="slider-container">
+                <span class="emoji">😟</span>
+                <input type="range" min="0" max="3" value="0" id="confidenceSlider">
+                <span class="emoji">😊</span>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn review" onclick="reviewAnswer()">Review</button>
+                <button class="modal-btn continue" onclick="confirmSubmit()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="homeModal">
+        <div class="modal-content">
+            <h3>⚠️ Return to Dashboard?</h3>
+            <p>If you leave now, you will:</p>
+            <p style="color: #f44336; font-weight: bold;"><br>• Reset this round<br>• Lose all progress</p>
+            <div class="modal-buttons">
+                <button class="modal-btn review" onclick="cancelHome()">Cancel</button>
+                <button class="modal-btn continue" onclick="confirmHome()">Leave Anyway</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="resultsModal">
+        <div class="modal-content">
+            <h2>Round 1 Summary</h2>
+            <h3 id="summaryTitle">WELL DONE!</h3>
+            <p class="summary-score"><span id="finalScore">0</span> of 3 Correct</p>
+            <p>Points Earned: <strong><span id="pointsEarned">0</span></strong></p>
+            <div class="summary-list" id="summaryList"></div>
+            <div class="modal-buttons">
+                <button class="modal-btn review" onclick="reviewRound()">Review Round</button>
+                <button class="modal-btn continue" onclick="nextRound()">Advance to Next Round</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+
+    <script src="round1.js"></script>
+</body>
+</html>

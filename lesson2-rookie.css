@@ -1,0 +1,134 @@
+body {
+    font-family: 'Courier New', Courier, monospace; 
+    background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f1a 100%);
+    color: #00ffcc; 
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 90%;
+    max-width: 900px;
+    background: rgba(0, 20, 40, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    border: 2px solid #00ffcc;
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+    position: relative;
+    min-height: 500px;
+}
+
+
+.boot-screen {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #050505;
+    border-radius: 13px;
+    padding: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.terminal-text { font-size: 18px; line-height: 1.6; white-space: pre-wrap; }
+.blinking-cursor { font-size: 24px; animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+
+.hidden { display: none !important; }
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #00ffcc;
+    font-weight: bold;
+}
+
+.system-monitor {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 5px solid #00ffcc;
+}
+
+.progress-track {
+    background: #222;
+    height: 8px;
+    margin-top: 10px;
+}
+.progress-fill {
+    background: #00ffcc;
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+.question-box h2 { font-size: 22px; margin-top: 15px; color: white; font-family: 'Segoe UI', sans-serif;}
+.system-msg { font-size: 14px; opacity: 0.8; }
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.option-btn {
+    background: transparent;
+    border: 1px solid #00ffcc;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Segoe UI', sans-serif;
+}
+.option-btn:hover { background: rgba(0, 255, 204, 0.2); }
+
+
+.btn-correct { background: #4CAF50 !important; border-color: #4CAF50 !important; box-shadow: 0 0 15px #4CAF50; color: black; }
+.btn-wrong { background: #F44336 !important; border-color: #F44336 !important; box-shadow: 0 0 15px #F44336; color: white;}
+
+.review-scroll-area {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #00ffcc;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.review-item {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+}
+
+.review-q { color: #00ffcc; font-weight: bold; margin-bottom: 5px; display: block; }
+.review-a { color: #fff; font-size: 14px; line-height: 1.5; font-family: 'Segoe UI', sans-serif; }
+
+.continue-btn {
+    background: #00ffcc;
+    color: #050505;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.continue-btn:hover { background: #fff; transform: scale(1.05); }
+
+
+.review-scroll-area::-webkit-scrollbar { width: 8px; }
+.review-scroll-area::-webkit-scrollbar-track { background: #050505; }
+.review-scroll-area::-webkit-scrollbar-thumb { background: #00ffcc; border-radius: 10px; }

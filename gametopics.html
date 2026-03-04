@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuizICT - Topic Progress</title>
+    <link rel="stylesheet" href="gametopics.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="IMAGES/logo.jpg" alt="Logo">
+            <span class="logo">MOTIVAQUIZ</span>
+        </div>
+        <nav>
+          <button onclick="goHome()" class="nav-btn">Home</button>
+          <button onclick="viewLeaderboard()" class="nav-btn">Leaderboard</button>
+          <button onclick="viewProfile()" class="nav-btn">Profile</button>
+          <button class="nav-btn" id="logoutBtn">Logout</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="progress-card">
+            <div class="topic-header">
+                <h2>TOPIC PROGRESS</h2>
+                <h1>INTRODUCTION TO COMPUTER HARDWARE</h1>
+                <p class="lesson-status">Overall Module - <span id="overallProgress">0</span>% Complete</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                
+                <div class="user-card">
+                    <div class="user-avatar">👶</div>
+                    <div class="user-name" id="userName">BOSS</div>
+                    <div class="user-title">STUDENT</div>
+                    <div class="user-stats">
+                        Rank #<span id="userRank">100</span> - Points: <span id="userPoints">0</span>
+                    </div>
+                </div>
+
+                <div class="lessons-list">
+                    <div class="lesson-item">
+                        <span class="lesson-name">Lesson 1: Hardware Basics</span>
+                        <button class="lesson-btn continue" onclick="startLesson(1)">Continue</button>
+                    </div>
+                    
+                    <div class="lesson-item">
+                        <span class="lesson-name" id="lesson2Name">Lesson 2: Software & OS</span>
+                        <button id="lesson2Btn" class="lesson-btn locked" disabled onclick="startLesson(2)">
+                            <span class="lock-icon" id="lesson2Icon">🔒</span>
+                        </button>
+                    </div>
+                    
+                    <div class="lesson-item">
+                        <span class="lesson-name">Lesson 3: Networking</span>
+                        <button id="lesson3Btn" class="lesson-btn locked" disabled>
+                            <span class="lock-icon">🔒</span>
+                        </button>
+                    </div>
+                    
+                    <div class="lesson-item">
+                        <span class="lesson-name">Lesson 4: Troubleshooting</span>
+                        <button id="lesson4Btn" class="lesson-btn locked" disabled>
+                            <span class="lock-icon">🔒</span>
+                        </button>
+                    </div>
+                    
+                    <div class="lesson-item">
+                        <span class="lesson-name">Lesson 5: Final Assessment</span>
+                        <button id="lesson5Btn" class="lesson-btn locked" disabled>
+                            <span class="lock-icon">🔒</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+    <script src="gametopics.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuiz - Round 3 Review</title>
+    <link rel="stylesheet" href="round3review.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MOTIVAQUIZ</div>
+        <div class="topic-title">INTRODUCTION TO COMPUTER HARDWARE</div>
+        <div class="user-stats">Rank #<span id="userRank">1</span> - Points: <span id="userPoints">0</span></div>
+    </div>
+    <div class="results-overview">
+        <div class="result-card">
+            <span class="result-label">Round 3 Score</span>
+            <span class="result-value" id="roundScore">0 / 3</span>
+        </div>
+        <div class="result-card">
+            <span class="result-label">Points Earned</span>
+            <span class="result-value plus" id="roundPoints">+0</span>
+        </div>
+        <div class="result-card total">
+            <span class="result-label">Grand Total Points</span>
+            <span class="result-value" id="totalPointsDisplay">0</span>
+        </div>
+    </div>
+
+    <div class="review-container">
+        <h1 class="review-title">Round 3 Review - Situational</h1>
+        <div class="difficulty-badge">HARD LEVEL - REAL-WORLD SCENARIOS</div>
+
+        <div class="completion-message" id="completionMessage">
+            Review your performance, then retake or continue.
+        </div>
+
+        <table class="review-table">
+            <thead>
+                <tr>
+                    <th>Questions</th>
+                    <th>Your Answer</th>
+                    <th>Your Result</th>
+                    <th>Study Tip</th>
+                </tr>
+            </thead>
+            <tbody id="reviewTableBody"></tbody>
+        </table>
+
+        <div class="action-buttons">
+            <button class="action-btn dashboard-btn" onclick="goToDashboard()">Home</button>
+            <button class="action-btn dashboard-btn" onclick="retakeRound()">Retake round</button>
+            <button class="action-btn complete-btn" id="advanceBtn" onclick="completeQuiz()" style="display:none;">Advance to final results</button>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY - BULACAO CAMPUS
+    </footer>
+
+    <script src="round3review.js"></script>
+</body>
+</html>

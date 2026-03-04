@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>MotivaQuiz - Round 2</title>
+    <link rel="stylesheet" href="round2.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MOTIVAQUIZ</div>
+        <div class="topic-title">INTRODUCTION TO COMPUTER HARDWARE</div>
+        <div class="user-stats">Rank #<span id="userRank">1</span> - Points: <span id="userPoints">230</span></div>
+    </div>
+
+    <div class="quiz-container">
+        <div class="performance-bar">
+            <div class="stat-item">
+                <div class="stat-label">Accuracy</div>
+                <div class="stat-value" id="accuracy">0%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Avg Time</div>
+                <div class="stat-value" id="avgTime">0s</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Streak</div>
+                <div class="stat-value" id="streak">0</div>
+            </div>
+        </div>
+
+        <div class="quiz-info">
+            <div class="question-counter">
+                <span id="currentQuestion">1</span> of <span id="totalQuestions">3</span>
+            </div>
+            <div class="timer">
+                <span class="timer-icon">⏰</span>
+                <span id="timeRemaining">03:00</span>
+            </div>
+            <div class="round-info">Round 2: Medium - Identification</div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text" id="questionText">Loading question...</div>
+
+            <input type="text" class="answer-input" id="answerInput" placeholder="Type your answer here...">
+
+            <div class="feedback-message" id="feedbackMessage"></div>
+
+            <div class="button-group">
+                <button class="home-btn" onclick="goHome()">Home</button>
+                <button class="submit-btn" id="submitBtn" onclick="showConfidenceCheck()" disabled>Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confidenceModal">
+        <div class="modal-content">
+            <h3>How confident do you feel<br>right now?</h3>
+            <div class="slider-container">
+                <span class="emoji">😟</span>
+                <input type="range" min="0" max="2" value="0" id="confidenceSlider">
+                <span class="emoji">😊</span>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn review" onclick="reviewAnswer()">Review</button>
+                <button class="modal-btn continue" onclick="confirmSubmit()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="homeModal">
+        <div class="modal-content">
+            <h3>Return to Dashboard?</h3>
+            <p>If you leave now, this round progress will be lost.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn review" onclick="cancelHome()">Cancel</button>
+                <button class="modal-btn continue" onclick="confirmHome()">Leave Anyway</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="summaryModal">
+        <div class="modal-content summary-content">
+            <h2>Round 2 Summary</h2>
+            <h3 id="summaryTitle">GREAT JOB!</h3>
+            <div class="summary-score">
+                <span id="summaryScore">0</span> of 3 Correct
+            </div>
+            <div class="summary-list" id="summaryList"></div>
+            <div class="modal-buttons">
+                <button class="modal-btn review" onclick="reviewRound()">Review Round</button>
+                <button class="modal-btn continue" id="nextRoundBtn" onclick="nextRound()">Advance to Next Round</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY - BULACAO CAMPUS
+    </footer>
+
+    <script src="round2.js"></script>
+</body>
+</html>

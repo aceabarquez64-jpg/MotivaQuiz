@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuiz - Lesson 2 Difficulty</title>
+    <link rel="stylesheet" href="lesson2-intro.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="IMAGES/logo.jpg" alt="Logo" onerror="this.style.display='none'">
+            <span class="logo">MOTIVAQUIZ</span>
+        </div>
+        <nav>
+            <button onclick="goHome()" class="nav-btn">Home</button>
+            <button onclick="viewLeaderboard()" class="nav-btn">Leaderboard</button>
+            <button onclick="viewProfile()" class="nav-btn">Profile</button>
+            <button class="nav-btn" id="logoutBtn">Logout</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="difficulty-header">
+            <h2>LESSON 2: SOFTWARE & OS</h2>
+            <h1>SELECT YOUR DIFFICULTY</h1>
+            <p>Choose your challenge level. Higher difficulties yield greater point rewards!</p>
+        </div>
+
+        <div class="difficulty-grid">
+            <div class="diff-card rookie" onclick="selectDifficulty('rookie')">
+                <div class="diff-icon">🌱</div>
+                <h3>ROOKIE</h3>
+                <p>Basic concepts and terminology.</p>
+                <div class="multiplier">1x Points</div>
+            </div>
+
+            <div class="diff-card intermediate" onclick="selectDifficulty('intermediate')">
+                <div class="diff-icon">⚡</div>
+                <h3>INTERMEDIATE</h3>
+                <p>Standard OS functions and software types.</p>
+                <div class="multiplier">1.5x Points</div>
+            </div>
+
+            <div class="diff-card experienced" onclick="selectDifficulty('experienced')">
+                <div class="diff-icon">🧠</div>
+                <h3>EXPERIENCED</h3>
+                <p>Advanced configurations and troubleshooting.</p>
+                <div class="multiplier">2x Points</div>
+            </div>
+
+            <div class="diff-card professional" onclick="selectDifficulty('professional')">
+                <div class="diff-icon">🏆</div>
+                <h3>PROFESSIONAL</h3>
+                <p>Expert level scenarios and system architecture.</p>
+                <div class="multiplier">3x Points</div>
+            </div>
+        </div>
+        
+        <button class="back-btn" onclick="goBack()">Back to Topics</button>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+
+    <script src="lesson2-intro.js"></script>
+</body>
+</html>S

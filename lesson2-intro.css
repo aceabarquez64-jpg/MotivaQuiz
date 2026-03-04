@@ -1,0 +1,122 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    background: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.logo-container { display: flex; align-items: center; gap: 10px; }
+.logo-container img { height: 40px; border-radius: 8px; }
+.logo { font-size: 24px; font-weight: bold; color: #333; letter-spacing: 1px; }
+
+nav { display: flex; gap: 15px; }
+.nav-btn {
+    padding: 8px 20px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+.nav-btn:hover { background: #f0f0f0; color: #4169E1; }
+
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    flex: 1;
+    width: 100%;
+    text-align: center;
+}
+
+.difficulty-header {
+    color: white;
+    margin-bottom: 40px;
+}
+.difficulty-header h2 { font-size: 18px; opacity: 0.9; margin-bottom: 5px; }
+.difficulty-header h1 { font-size: 36px; margin: 0 0 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+
+
+.difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0 20px;
+}
+
+
+.diff-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 6px solid #ccc;
+    position: relative;
+    overflow: hidden;
+}
+
+.diff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.diff-icon { font-size: 50px; margin-bottom: 15px; }
+.diff-card h3 { margin: 0 0 10px 0; font-size: 24px; color: #333; }
+.diff-card p { color: #666; font-size: 14px; margin-bottom: 20px; }
+
+.multiplier {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+.rookie { border-color: #4CAF50; }
+.rookie .multiplier { background: #e8f5e9; color: #4CAF50; }
+
+.intermediate { border-color: #FF9800; }
+.intermediate .multiplier { background: #fff3e0; color: #FF9800; }
+
+.experienced { border-color: #E91E63; }
+.experienced .multiplier { background: #fce4ec; color: #E91E63; }
+
+.professional { border-color: #9C27B0; }
+.professional .multiplier { background: #f3e5f5; color: #9C27B0; }
+
+.back-btn {
+    margin-top: 40px;
+    padding: 12px 30px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.back-btn:hover { background: white; color: #764ba2; }
+
+footer {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MotivaQuiz - Sign Up</title>
+    <link rel="stylesheet" href="Signup.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">MOTIVAQUIZ</h1>
+        <h2 class="subtitle">SIGN UP</h2>
+        
+        <form class="signup-form" id="signupForm">
+    <div class="name-fields">
+        <input type="text" id="firstName" class="input-field" placeholder="First Name" required>
+        <input type="text" id="lastName" class="input-field" placeholder="Last Name" required>
+    </div>
+    <input type="email" id="email" class="input-field" placeholder="Email" required>
+    <input type="password" id="password" class="input-field" placeholder="Password" minlength="6" required>
+    <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm Password" minlength="6" required>
+    
+    <button type="submit" class="signup-button">Sign Up</button>
+</form>
+        
+        <p class="login-link">
+            Already have an account? <a href="login.html">Log in here</a>
+        </p>
+    </div>
+
+    <script src="signup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuiz – Teacher Lobby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Createmode.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">MOTIVAQUIZ</div>
+    <div class="header-title">🎓 TEACHER LOBBY</div>
+    <div class="teacher-badge">👩‍🏫 Teacher Mode</div>
+</div>
+
+<div class="wrapper">
+
+   
+    <div class="screen active" id="screenSetup">
+        <div class="card">
+            <div class="setup-hero">
+                <h1>🏫 Create a Class Lobby</h1>
+                <p>Set up your quiz session, share the room code with your students, and start when everyone's ready.</p>
+            </div>
+
+            <div class="setup-grid">
+               
+                <div>
+                    <div style="margin-bottom: 24px;">
+                        <label class="field-label">Session Name</label>
+                        <input type="text" class="input-field" id="sessionName" placeholder="e.g. Grade 11 – Computer Hardware Quiz">
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label class="field-label">Select Topic</label>
+                        <div class="topic-chips">
+                            <div class="chip selected" data-topic="hardware">💻 Computer Hardware</div>
+                            <div class="chip" data-topic="networking">🌐 Networking</div>
+                            <div class="chip" data-topic="programming">👨‍💻 Programming</div>
+                            <div class="chip" data-topic="software">📱 Software</div>
+                            <div class="chip" data-topic="security">🔒 Security</div>
+                            <div class="chip" data-topic="random">🎲 Random Mix</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label class="field-label">Number of Rounds</label>
+                        <div class="counter-row">
+                            <button class="counter-btn" onclick="adjustCounter('rounds', -1)">−</button>
+                            <span class="counter-val" id="roundsVal">4</span>
+                            <span class="counter-unit">rounds</span>
+                            <button class="counter-btn" onclick="adjustCounter('rounds', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="field-label">Time Per Question</label>
+                        <div class="counter-row">
+                            <button class="counter-btn" onclick="adjustCounter('timer', -5)">−</button>
+                            <span class="counter-val" id="timerVal">30</span>
+                            <span class="counter-unit">seconds</span>
+                            <button class="counter-btn" onclick="adjustCounter('timer', 5)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div>
+                    <div style="margin-bottom: 24px;">
+                        <label class="field-label">Max Players</label>
+                        <select class="input-field" id="maxPlayers">
+                            <option value="10">Up to 10 players</option>
+                            <option value="20" selected>Up to 20 players</option>
+                            <option value="30">Up to 30 players</option>
+                            <option value="40">Up to 40 players</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label class="field-label">Difficulty</label>
+                        <select class="input-field" id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="field-label">Lobby Options</label>
+                        <div style="margin-top: 4px;">
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <strong>Show Leaderboard Between Rounds</strong>
+                                    <span>Students see live rankings</span>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" id="toggleLeaderboard" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <strong>Allow Student Chat</strong>
+                                    <span>Chat enabled between rounds</span>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" id="toggleChat" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-row">
+                                <div class="toggle-info">
+                                    <strong>Anonymous Mode</strong>
+                                    <span>Hide student names from each other</span>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" id="toggleAnon">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="create-btn" onclick="createLobby()">🚀 Create Lobby & Generate Room Code</button>
+        </div>
+    </div>
+
+   
+    <div class="screen" id="screenLobby">
+
+       
+        <div class="room-banner">
+            <div class="room-banner-left">
+                <h3>Room Code — Share with students</h3>
+                <div class="room-code-display" id="roomCodeDisplay">––––––</div>
+            </div>
+            <div class="room-banner-right">
+                <button class="copy-btn" onclick="copyCode()">📋 Copy Code</button>
+                <span class="lobby-meta" id="lobbyMeta">0 / 20 players joined</span>
+            </div>
+        </div>
+
+        <div class="lobby-grid">
+
+           
+            <div class="card">
+                <div class="players-header">
+                    <h2>👥 Students in Lobby</h2>
+                    <span class="player-count-badge" id="playerCountBadge">0 joined</span>
+                </div>
+                <div class="players-grid" id="playersGrid">
+                    <div class="waiting-placeholder" id="waitingPlaceholder">
+                        <div class="big-icon">⏳</div>
+                        <p>Waiting for students to join...</p>
+                    </div>
+                </div>
+
+               
+                <div style="margin-top: 24px;">
+                    <h2 style="margin-bottom: 12px;">💬 Lobby Chat</h2>
+                    <div class="chat-box" id="chatBox"></div>
+                    <div class="chat-input-row">
+                        <input class="chat-input" id="chatInput" placeholder="Message to all students..." onkeydown="if(event.key==='Enter') sendChat()">
+                        <button class="chat-send" onclick="sendChat()">➤</button>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="sidebar">
+
+               
+                <div class="card">
+                    <h2>📋 Session Settings</h2>
+                    <div class="match-settings-summary" id="settingsSummary">
+                        <div class="setting-row">
+                            <span class="s-label">Session</span>
+                            <span class="s-val" id="summSession">—</span>
+                        </div>
+                        <div class="setting-row">
+                            <span class="s-label">Topic</span>
+                            <span class="s-val" id="summTopic">—</span>
+                        </div>
+                        <div class="setting-row">
+                            <span class="s-label">Rounds</span>
+                            <span class="s-val" id="summRounds">—</span>
+                        </div>
+                        <div class="setting-row">
+                            <span class="s-label">Timer</span>
+                            <span class="s-val" id="summTimer">—</span>
+                        </div>
+                        <div class="setting-row">
+                            <span class="s-label">Difficulty</span>
+                            <span class="s-val" id="summDiff">—</span>
+                        </div>
+                        <div class="setting-row">
+                            <span class="s-label">Max Players</span>
+                            <span class="s-val" id="summMax">—</span>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="card">
+                    <h2>🎮 Controls</h2>
+                    <button class="start-btn" id="startBtn" onclick="startQuiz()">
+                        ▶ Start Quiz
+                    </button>
+                    <p style="font-size: 13px; color: #aaa; text-align: center; margin: 12px 0; font-weight: 700;">
+                        Minimum 2 players required
+                    </p>
+                    <button class="end-btn" onclick="endLobby()">✕ End & Close Lobby</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS</footer>
+
+
+<div class="toast" id="toast"></div>
+
+<script src="Createmode.js"></script>
+</body>
+</html>

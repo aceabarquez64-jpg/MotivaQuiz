@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuiz - 1v1 Mode</title>
+    <link rel="stylesheet" href="1v1mode.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MOTIVAQUIZ</div>
+        <div class="topic-title">1v1 CHALLENGE MODE</div>
+        <div class="user-stats">Rank #<span id="userRank">1</span> - Points: <span id="userPoints">455</span></div>
+    </div>
+
+    <div class="lobby-container">
+
+       
+        <div id="modeSelection">
+            <div class="mode-header">
+                <h1>⚔️ 1v1 Battle Mode</h1>
+                <div class="vs-badge">VS</div>
+                <p class="mode-description">
+                    Challenge a friend to a 1v1 battle!<br>
+                    Battle through 4 rounds with no penalties for wrong answers.<br>
+                    Chat during 30-second breaks between rounds!
+                </p>
+            </div>
+
+            <div class="invite-card">
+                <div class="option-icon">👥</div>
+                <div class="option-title">Invite Friend</div>
+                <div class="option-description">
+                    Send an invitation link to a specific friend and start a private match.
+                </div>
+                <button class="invite-card-btn" onclick="selectMode('invite')">Get Started</button>
+            </div>
+        </div>
+
+        
+        <div id="matchSetup" style="display: none;">
+            <div class="mode-header">
+                <h1 id="setupTitle">👥 Invite a Friend</h1>
+            </div>
+
+            <div class="setup-section">
+                <h3>Select Topic</h3>
+                <div class="topic-select">
+                    <button class="topic-btn" onclick="selectTopic(this, 'hardware')">
+                        💻 Computer Hardware
+                    </button>
+                    <button class="topic-btn" onclick="selectTopic(this, 'networking')">
+                        🌐 Networking
+                    </button>
+                    <button class="topic-btn" onclick="selectTopic(this, 'programming')">
+                        👨‍💻 Programming
+                    </button>
+                    <button class="topic-btn" onclick="selectTopic(this, 'software')">
+                        📱 Software
+                    </button>
+                    <button class="topic-btn" onclick="selectTopic(this, 'security')">
+                        🔒 Security
+                    </button>
+                    <button class="topic-btn selected" onclick="selectTopic(this, 'random')">
+                        🎲 Random
+                    </button>
+                </div>
+            </div>
+
+            <div class="setup-section">
+                <h3>Invite Your Friend</h3>
+                <div class="input-group">
+                    <label>Friend's Email or Username</label>
+                    <input type="text" class="input-field" id="friendInput" placeholder="Enter email or username">
+                </div>
+                <p style="color: #666; font-size: 14px; margin-top: 10px;">
+                    💡 Or share this match code: <strong id="matchCode">ABC123</strong>
+                </p>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn secondary-btn" onclick="backToSelection()">Back</button>
+                <button class="action-btn primary-btn" onclick="startMatch()">Start Match</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+
+    <script src="1v1mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: Rookie - OS Foundation</title>
+    <link rel="stylesheet" href="lesson2-rookie.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="bootScreen" class="boot-screen">
+            <div class="terminal-text" id="terminalOutput"></div>
+            <div class="blinking-cursor">_</div>
+        </div>
+
+        <div id="quizInterface" class="hidden">
+            <header class="game-header">
+                <div class="user-info">
+                    <span id="displayPlayer" class="glow-text">OPERATOR: BOSS</span>
+                    <span id="displayPoints" class="glow-text">DATA MINED: 0</span>
+                </div>
+                <div class="level-tag">ACCESS: ROOKIE</div>
+            </header>
+
+            <div class="main-stage">
+                <div class="system-monitor" id="systemMonitor">
+                    <div class="progress-container">
+                        <div class="progress-text">System Initialization: <span id="progValue">0</span>%</div>
+                        <div class="progress-track"><div id="progFill" class="progress-fill"></div></div>
+                    </div>
+                    
+                    <div class="question-box" id="questionBox">
+                        <p class="system-msg" id="systemMsg">[SYSTEM READY]: Awaiting Input...</p>
+                        <h2 id="questionText">Loading Data...</h2>
+                    </div>
+                </div>
+
+                <div class="options-grid" id="optionsGrid">
+                    </div>
+
+                <div id="reviewSection" class="hidden">
+                    <div class="report-header">
+                        <div class="grade-container">
+                            <span class="grade-label">PERFORMANCE RANK:</span>
+                            <h1 id="performanceGrade" class="glow-text">--</h1>
+                        </div>
+                        <h2 class="glow-text">SYSTEM DEBRIEF: OS FOUNDATION</h2>
+                        <p>Decrypted insights for Operator <span class="user-name-span">BOSS</span></p>
+                    </div>
+                    
+                    <div id="reviewContainer" class="review-scroll-area">
+                        </div>
+
+                    <button class="continue-btn" onclick="exitToLobby()">CLOSE REPORT & RETURN TO LOBBY</button>
+                </div>
+            </div>
+
+            <footer>
+                ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+            </footer>
+        </div>
+    </div>
+
+    <script src="lesson2-rookie.js"></script>
+</body>
+</html>

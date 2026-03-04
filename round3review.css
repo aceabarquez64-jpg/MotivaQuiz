@@ -1,0 +1,243 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #b3e5fc 0%, #81d4fa 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4169E1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            flex: 1;
+        }
+
+        .user-stats {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .review-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 4px solid #000;
+        }
+
+        .review-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #f44336;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .difficulty-badge {
+            text-align: center;
+            font-size: 18px;
+            color: #f44336;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        
+        .review-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .review-table thead {
+            background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+        }
+
+        .review-table th {
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border: 2px solid #000;
+        }
+
+        .review-table td {
+            padding: 20px;
+            border: 2px solid #000;
+            vertical-align: top;
+        }
+
+        .review-table tbody tr:nth-child(odd) {
+            background-color: #ffebee;
+        }
+
+        .review-table tbody tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        .question-cell {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+
+        .answer-cell {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .answer-cell.correct-answer {
+            color: #4caf50;
+        }
+
+        .answer-cell.wrong-answer {
+            color: #f44336;
+        }
+
+        .explanation-cell {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .feedback-cell {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .feedback-cell.positive {
+            color: #2e7d32;
+        }
+
+        .feedback-cell.negative {
+            color: #c62828;
+        }
+
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            padding: 15px 40px;
+            border-radius: 25px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboard-btn {
+            background: linear-gradient(135deg, #ef9a9a 0%, #e57373 100%);
+            color: #000;
+        }
+
+        .complete-btn {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .completion-message {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .review-table {
+                font-size: 12px;
+            }
+
+            .review-table th,
+            .review-table td {
+                padding: 10px;
+            }
+
+            .answer-cell {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .review-container {
+                padding: 15px;
+                overflow-x: auto;
+            }
+
+            .review-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+        }
+    

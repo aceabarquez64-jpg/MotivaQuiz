@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MotivaQuiz - Dashboard</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="IMAGES/logo.jpg">
+            <span class="logo">MOTIVAQUIZ</span>
+        </div>
+        <nav>
+          <button class="nav-btn" onclick="goHome()">Home</button>
+          <button class="nav-btn" onclick="viewLeaderboard()">Leaderboard</button> 
+          <button class="nav-btn" onclick="viewProfile()">Profile</button>
+          <button class="nav-btn" id="logoutBtn" onclick="logout()">Logout</button>
+       </nav>
+    </header>
+
+    <div class="user-bar">
+        <div class="user-info">
+            <div class="user-avatar">👶</div>
+            <div class="user-details">
+                <h2 id="welcomeMessage">Welcome, <span id="userName">BOSS</span></h2>
+                <p>Rank #<span id="userRank">1</span> - Points: <span id="userPoints">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <!-- Current Topic Card -->
+        <div class="card topic-card">
+            <h3>Current Topic:</h3>
+            <button onclick="startSolo()" type="submit" class="enter-btn">ENTER</button>            
+            <p class="topic-title">Computer Hardware</p>
+            <p class="lesson-info">Lesson 1 - <span id="lessonProgress">0</span>% Complete</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <!-- Create Lobby Card -->
+        <div class="card lobby-card">
+            <div class="chalkboard">
+                <div class="chalkboard-text">CREATE<br>LOBBY</div>
+            </div>
+            <button class="create-btn" onclick="createLobby()">CREATE</button>
+        </div>
+      
+        <!-- Quiz Performance Card -->
+        <div class="card performance-card">
+            <h3>Quiz Performance<br>Summaries</h3>
+            <button class="view-btn" onclick="viewPerformance()">VIEW</button>
+            <p style="color: #666; margin-top: 20px;">Detailed Report of your Progress</p>
+        </div>
+
+        <!-- 1v1 Mode Card -->
+        <div class="card pvp-card">
+            <div class="pvp-content">
+                <h3 class="pvp-title">1v1 Mode</h3>
+                <div class="vs-badge">VS</div>
+                <p class="pvp-subtitle">Challenge your<br>Friends</p>
+                <button class="enter-btn" onclick="enter1v1()">ENTER</button>
+            </div>
+            <div class="pvp-avatars">
+                <div class="pvp-avatar">👨</div>
+                <div class="pvp-avatar">👩</div>
+            </div>
+        </div>
+
+        <!-- Achievements Card -->
+        <div class="card" style="grid-column: span 2;">
+            <div class="achievements-content">
+                <h3>Achievements</h3>
+                <div class="trophy-container">
+                    <span class="trophy">🏅</span>
+                    <span class="trophy">🏅</span>
+                </div>
+                <button class="see-achievements-btn" onclick="seeAchievements()">SEE ACHIEVEMENTS</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+
+    <script src="homepage.js"></script>
+</body>
+</html>

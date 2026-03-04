@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaQuiz - Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MOTIVAQUIZ</div>
+        <div class="topic-title">STUDENT PROFILE</div>
+        <div class="user-stats">Rank #<span id="displayRank">--</span></div>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-sidebar">
+            <div class="avatar-large">👤</div>
+            <h2 id="profName">STUDENT NAME</h2>
+            <p id="profEmail">student@act.edu.ph</p>
+            <button class="back-btn" onclick="window.location.href='homepage (1).html'">Back to Dashboard</button>
+        </div>
+
+        <div class="profile-main">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Points</h3>
+                    <p class="stat-value" id="profPoints">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pre-Test Score</h3>
+                    <p class="stat-value" id="profPretest">0/5</p>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Academic Progress</h3>
+                <div class="progress-container">
+                    <p>Computer Hardware Module</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="profProgress" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="danger-zone">
+                <button class="logout-link" onclick="handleLogout()">Logout of System</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
+    </footer>
+
+    <script src="profile.js"></script>
+</body>
+</html>
