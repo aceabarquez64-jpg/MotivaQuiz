@@ -5,11 +5,12 @@ document.getElementById('signupForm')?.addEventListener('submit', function(e) {
     
     // Supports current form IDs in Signup (1).html
     const email = document.getElementById('email')?.value.trim();
+    const normalizedEmail = (email || '').toLowerCase();
     const password = document.getElementById('password')?.value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     
     // Validation
-    if (!email || !password || !confirmPassword) {
+        if (!normalizedEmail || !password || !confirmPassword) {
         showMessage('Please fill in all fields', 'error');
         return;
     }
@@ -27,16 +28,16 @@ document.getElementById('signupForm')?.addEventListener('submit', function(e) {
     // Check if user already exists
     const users = JSON.parse(localStorage.getItem('motivaquizUsers')) || {};
     
-    if (users[email]) {
+    if (users[normalizedEmail]) {
         showMessage('Account already exists! Please log in.', 'error');
         return;
     }
     
     // Extract username from email
-    const userName = email.split('@')[0];
+    const userName = normalizedEmail.split('@')[0];
     
     // Create new user with FRESH data
-    users[email] = {
+    users[normalizedEmail] = {
         password: password, // In production, this should be hashed!
         userName: userName,
         createdAt: new Date().toISOString()
@@ -72,7 +73,7 @@ document.getElementById('signupForm')?.addEventListener('submit', function(e) {
     keysToRemove.forEach(key => localStorage.removeItem(key));
     
     // Set NEW user data with fresh start
-    localStorage.setItem('currentUser', email);
+    localStorage.setItem('currentUser', normalizedEmail);
     localStorage.setItem('userName', userName);
     localStorage.setItem('isLoggedIn', 'true');
     
@@ -106,3 +107,4 @@ function showMessage(text, type) {
     // Fallback when no #message container exists in the page
     alert(text);
 }
+
