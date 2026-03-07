@@ -44,7 +44,7 @@ const achievementData = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+    loadUserProgress(); // Load user-specific data
     const userPoints = parseInt(localStorage.getItem('userPoints')) || 0;
     
     
@@ -80,4 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function goBack() {
     window.location.href = 'homepage (1).html';
+
 }
