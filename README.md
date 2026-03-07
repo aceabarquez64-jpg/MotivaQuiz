@@ -5,8 +5,7 @@
 ### For Players:
 
 1. **Open the game:**
-   - Double-click `index.html` to start
-   - Or open it in any web browser (Chrome, Firefox, Edge, Safari)
+    open it in any web browser (Chrome, Firefox, Edge, Safari)
 
 2. **Create an account:**
    - Click "SIGN UP" button
@@ -43,21 +42,6 @@
 - Internet: Not required (runs offline)
 - Storage: Uses browser localStorage
 
----
-
-## 📖 How to Deploy
-
-### Option 1: Local Use
-1. Extract all files
-2. Double-click index.html
-3. Start playing!
-
-### Option 2: Online Hosting
-1. Upload to GitHub Pages, Netlify, or Vercel
-2. Set index.html as entry point
-3. Share the URL with players
-
----
 
 ## 🎓 Game Modes
 
@@ -65,22 +49,6 @@
 2. **1v1 Mode** - Challenge friends
 3. **Create Lobby** - Custom game rooms
 
----
-
-## 🆘 Troubleshooting
-
-**Login doesn't work?**
-- Sign up first before logging in
-- Enable JavaScript in browser
-
-**Progress not saving?**
-- Enable cookies/localStorage
-- Don't use Incognito mode
-
-**Images not loading?**
-- Keep IMAGES folder in same directory
-
----
 
 ## 📜 Credits
 
