@@ -1,0 +1,76 @@
+:root {
+    --act-navy: #002147;
+    --act-gold: #ffcc00;
+    --glass: rgba(0, 33, 71, 0.85);
+}
+
+body {
+  
+    background-image: url('IMAGES/networking-bg.jpg'); 
+    background-color: var(--act-navy);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    color: var(--act-gold);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    perspective: 1200px; 
+}
+
+.perspective-wrapper {
+    width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.expert-3d-panel {
+    width: 900px;
+    max-height: 90vh;
+    background: var(--glass);
+    border: 2px solid rgba(255, 204, 0, 0.4);
+    padding: 30px;
+    transform: rotateX(8deg);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.8), 0 0 30px rgba(26, 21, 1, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    display: flex; flex-direction: column;
+}
+
+.branding-bar {
+    display: flex; align-items: center; gap: 15px;
+    border-bottom: 2px solid var(--act-gold);
+    padding-bottom: 10px; margin-bottom: 10px;
+    font-weight: bold; font-size: 1.1rem;
+    justify-content: space-between;
+}
+
+.act-logo {
+    width: 50px; height: 50px;
+    border-radius: 8px; background: white; padding: 2px;
+}
+
+.phase-tag {
+    background: var(--act-gold); color: var(--act-navy);
+    padding: 8px 15px; border-radius: 5px; font-weight: bold;
+    text-align: center; letter-spacing: 2px;
+}
+
+
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+.option-btn {
+    background: rgba(0, 0, 0, 0.1); border: 1px solid var(--act-gold);
+    color: white; padding: 15px; border-radius: 8px; cursor: pointer;
+    transition: 0.3s; font-family: inherit;
+}
+.option-btn:hover { background: var(--act-gold); color: var(--act-navy); }
+
+textarea {
+    width: 100%; height: 100px;
+    background: rgba(0,0,0,0.5); border: 1px solid var(--act-gold);
+    color: #fff; padding: 15px; border-radius: 8px; font-size: 1rem;
+    margin-top: 20px; font-family: inherit; resize: none;
+}
+
+.hidden { display: none !important; }

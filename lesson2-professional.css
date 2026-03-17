@@ -1,0 +1,79 @@
+:root {
+    --act-blue: #002147;
+    --act-gold: #ffcc00;
+    --glass: rgba(0, 33, 71, 0.8);
+}
+
+body {
+    background: radial-gradient(circle at center, #001224 0%, #000 100%);
+    color: var(--act-gold);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    perspective: 1200px; 
+}
+
+.perspective-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expert-3d-panel {
+    width: 900px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    padding: 40px;
+    transform: rotateX(15deg);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5), 0 0 20px rgba(255,204,0,0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.expert-3d-panel:hover {
+    transform: rotateX(5deg); 
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--act-gold);
+    color: #fff;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    resize: none;
+    margin-top: 20px;
+}
+
+#executeBtn {
+    background: var(--act-gold);
+    color: var(--act-blue);
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+
+.hidden { display: none !important; }
+
+
+#performanceGrade {
+    font-size: 5rem;
+    text-shadow: 0 0 30px var(--act-gold);
+    margin: 10px 0;
+}
+
+#reviewSection {
+    position: relative;
+    z-index: 10;
+    pointer-events: all !important; 
+}

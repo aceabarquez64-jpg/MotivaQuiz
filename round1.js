@@ -31,9 +31,9 @@ let totalAnswerTime = 0;
 let questionStartTimestamp = Date.now();
 
 function init() {
-    localStorage.setItem('userPoints', 0);
-    document.getElementById('userPoints').textContent = 0;
-    document.getElementById('avgTime').textContent = '0s';
+    loadUserProgress(); // Load user-specific data
+    const currentPoints = parseInt(localStorage.getItem('userPoints')) || 0;
+    document.getElementById('userPoints').textContent = currentPoints;
     startTimer();
     loadQuestion();
 }
@@ -115,6 +115,7 @@ function checkAnswer() {
         correctCount++;
         streak++;
         userPoints += 10;
+        updateUserPoints(10); // Save to user storage
 
         feedbackDiv.className = 'feedback-message correct';
         feedbackDiv.innerHTML = `
@@ -209,9 +210,10 @@ function showResults() {
         `;
     }
 
-    localStorage.setItem('userPoints', userPoints);
-    localStorage.setItem('round1Results', JSON.stringify(roundAnswers));
-    document.getElementById('resultsModal').classList.add('active');
+updateUserPoints(0); // Update final points
+saveUserProgress(); // Save all progress
+localStorage.setItem('round1Results', JSON.stringify(roundAnswers));
+document.getElementById('resultsModal').classList.add('active');
 }
 
 function reviewRound() {

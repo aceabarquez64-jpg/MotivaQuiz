@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+    loadUserProgress();    
     const userPoints = parseInt(localStorage.getItem('userPoints')) || 0;
     
     
@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     let players = [
-        { name: "Sarah Connor", points: 10000, isMe: false },
-        { name: "John Doe", points: 9500, isMe: false },
-        { name: "Jane Smith", points: 8750, isMe: false },
-        { name: "Mike Johnson", points: 8000, isMe: false },
-        { name: "Emily Chen", points: 6000, isMe: false },
-        { name: "Chris Evans", points: 4000, isMe: false },
-        { name: "Anna Taylor", points: 2500, isMe: false },
+        { name: "Sarah Connor", points: 1000000, isMe: false },
+        { name: "John Doe", points: 900000, isMe: false },
+        { name: "Jane Smith", points: 750000, isMe: false },
+        { name: "Mike Johnson", points: 300000, isMe: false },
+        { name: "Emily Chen", points: 100000, isMe: false },
+        { name: "Chris Evans", points: 50000, isMe: false },
+        { name: "Anna Taylor", points: 10000, isMe: false },
        
         { name: "You (Student)", points: userPoints, isMe: true }
     ];

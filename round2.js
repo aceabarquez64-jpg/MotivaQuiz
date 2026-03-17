@@ -19,7 +19,8 @@
 let currentQuestionIndex = 0;
 let userAnswer = "";
 let roundAnswers = [];
-const initialPoints = parseInt(localStorage.getItem('userPoints')) || 230;
+loadUserProgress(); // Load user-specific data first
+const initialPoints = parseInt(localStorage.getItem('userPoints')) || 0;
 let userPoints = initialPoints;
 let timeLeft = 180;
 let timerInterval;
@@ -81,6 +82,7 @@ function checkAnswer() {
         correctCount++;
         streak++;
         userPoints += 25;
+        updateUserPoints(25); // Save to user storage
     } else {
         streak = 0;
     }
@@ -195,7 +197,8 @@ function showRoundSummary() {
         `;
     }
 
-    localStorage.setItem('userPoints', userPoints);
+    updateUserPoints(0); // Update final points
+    saveUserProgress(); // Save all progress
     document.getElementById('summaryModal').classList.add('active');
 }
 

@@ -1,0 +1,27 @@
+:root { --act-blue: #003366; --act-gold: #FFCC00; --bg-dark: #696c05; }
+        body { background: var(--bg-dark); color: #78e2fc; font-family: 'Courier New', monospace; margin: 0; }
+        .hidden { display: none !important; }
+        
+        
+        .terminal-header { border-bottom: 2px solid var(--warn-color); padding: 15px; color: var(--warn-color); display: flex; justify-content: space-between; font-weight: bold; }
+        .container { max-width: 900px; margin: 50px auto; padding: 20px; }
+        
+        .box { border: 1px solid #00626f; background: #200145; padding: 25px; position: relative; }
+        .box::before { content: "SYSTEM_DIAGNOSTIC"; position: absolute; top: -10px; left: 10px; background: var(--bg-dark); padding: 0 5px; color: var(--warn-color); font-size: 0.8rem; }
+
+       
+        .action-btn { 
+            display: block; width: 100%; padding: 15px; margin-top: 10px;
+            background: transparent; color: var(--warn-color); border: 1px solid var(--warn-color);
+            cursor: pointer; font-family: inherit; font-weight: bold; transition: 0.3s;
+        }
+        .action-btn:hover { background: var(--warn-color); color: #e5e908; box-shadow: 0 0 15px var(--warn-color); }
+        .action-btn:active { transform: scale(0.98); }
+
+       
+        .review-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .review-table th { background: #b07806; color: var(--warn-color); padding: 10px; text-align: left; border: 1px solid #444; }
+        .review-table td { padding: 12px; border: 1px solid #9e5151; font-size: 0.9rem; }
+        .status-success { color: #00ff00; font-weight: bold; }
+        .status-failed { color: #914747; font-weight: bold; }
+    

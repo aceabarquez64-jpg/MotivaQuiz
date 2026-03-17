@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4: System Troubleshooting</title>
+    <link rel="stylesheet" href="lesson4.css">
+   
+</head>
+<body>
+
+    <div class="terminal-header">
+        <span id="displayPhase">DIAGNOSTIC_MODE: INACTIVE</span>
+        <span id="displayPlayer">OPERATOR: ---</span>
+    </div>
+
+    <div class="container">
+        <div id="bootScreen" class="box">
+            <div id="terminalOutput"></div>
+        </div>
+
+        <div id="quizInterface" class="hidden box">
+            <p id="questionText" style="font-size: 1.1rem; min-height: 60px;"></p>
+            <div id="inputArea"></div>
+        </div>
+
+        <div id="reviewSection" class="hidden box">
+            <h1 style="color: var(--warn-color); text-align: center;">MAINTENANCE LOG COMPLETE</h1>
+            <h2 style="text-align: center;">CURRENT RANK: <span id="performanceRank" style="text-decoration: underline;">RANK_PENDING</span></h2>
+            
+            <table class="review-table">
+                <thead>
+                    <tr>
+                        <th>SECTOR</th>
+                        <th>STATUS</th>
+                        <th>RESOLUTION DATA</th>
+                    </tr>
+                </thead>
+                <tbody id="reviewTableBody"></tbody>
+            </table>
+            
+            <button class="action-btn" style="margin-top: 30px;" onclick="exitToLobby()">COMMIT CHANGES & EXIT</button>
+        </div>
+    </div>
+
+    <script src="lesson4.js"></script>
+</body>
+</html>

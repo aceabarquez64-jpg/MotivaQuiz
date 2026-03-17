@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 5: Animation Finale</title>
+    <style>
+        
+        :root { --act-blue: #003366; --act-gold: #FFCC00; --bg-dark: #0a0a1a; }
+        body { background: var(--bg-dark); color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; }
+        .hidden { display: none !important; }
+        
+       
+        .finale-header { background: var(--act-blue); border-bottom: 3px solid var(--act-gold); padding: 20px; text-align: center; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; color: var(--act-gold); }
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; }
+        
+       
+        .quest-box { background: rgba(0, 51, 102, 0.3); border: 2px solid var(--act-blue); border-radius: 8px; padding: 30px; text-align: center; box-shadow: 0 0 20px rgba(0, 51, 102, 0.5); }
+        
+        
+        .act-btn { background: var(--act-blue); color: var(--act-gold); border: 2px solid var(--act-gold); padding: 15px 20px; margin: 10px; width: 100%; font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+        .act-btn:hover { background: var(--act-gold); color: var(--act-blue); box-shadow: 0 0 15px var(--act-gold); transform: translateY(-2px); }
+
+       
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(5px); }
+        .modal-content { background: var(--act-blue); border: 3px solid var(--act-gold); padding: 30px; max-width: 600px; text-align: center; border-radius: 10px; box-shadow: 0 0 30px var(--act-gold); animation: popIn 0.4s ease-out; }
+        .modal-title { color: var(--act-gold); font-size: 1.8rem; margin-top: 0; text-transform: uppercase; }
+        .visual-placeholder { background: #000; border: 2px dashed var(--act-gold); height: 200px; margin: 20px 0; display: flex; justify-content: center; align-items: center; color: #aaa; font-style: italic; }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        
+        .finale-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #111; }
+        .finale-table th { background: var(--act-gold); color: var(--act-blue); padding: 15px; text-align: left; }
+        .finale-table td { padding: 15px; border-bottom: 1px solid #333; }
+        .row-success { border-left: 5px solid #00ff00; }
+        .row-fail { border-left: 5px solid #ff3333; }
+    </style>
+</head>
+<body>
+
+    <div class="finale-header">
+        <h1>MODULE 5: THE ANIMATION QUEST</h1>
+        <div id="playerStatus" style="font-size: 1rem; color: #fff;">ACT CANDIDATE: ---</div>
+    </div>
+
+    <div id="infoModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="modal-title" id="modalTitle">PRINCIPLE DATA</h2>
+            <div class="visual-placeholder" id="modalVisual">
+                [ANIMATION VISUAL RENDERED HERE]
+            </div>
+            <p id="modalDesc" style="font-size: 1.1rem; line-height: 1.6;"></p>
+            <button class="act-btn" style="width: auto; margin-top: 20px;" onclick="closePopupAndStart()">ACKNOWLEDGE & PROCEED</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="quizInterface" class="quest-box hidden">
+            <h2 style="color: var(--act-gold); margin-bottom: 30px;" id="questionText">Awaiting Question...</h2>
+            <div id="choicesArea"></div>
+        </div>
+
+        <div id="reviewSection" class="quest-box hidden">
+            <h1 style="color: var(--act-gold); font-size: 2.5rem;">QUEST COMPLETE</h1>
+            <h3>FINAL RANKING: <span id="finalRank" style="color: #fff; background: var(--act-blue); padding: 5px 15px; border-radius: 5px;">---</span></h3>
+            
+            <table class="finale-table">
+                <thead>
+                    <tr>
+                        <th>PRINCIPLE</th>
+                        <th>YOUR RESULT</th>
+                        <th>ARCHITECT NOTES</th>
+                    </tr>
+                </thead>
+                <tbody id="reviewTableBody"></tbody>
+            </table>
+            
+            <button class="act-btn" style="margin-top: 40px;" onclick="completeModule()">FINALIZE COURSE & RETURN</button>
+        </div>
+    </div>
+
+    <script src="lesson5.js"></script>
+</body>
+</html>

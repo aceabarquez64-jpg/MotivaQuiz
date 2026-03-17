@@ -25,6 +25,7 @@ let totalAnswerTime = 0;
 let questionStartTimestamp = Date.now();
 
 function init() {
+    loadUserProgress(); // Load user-specific data
     document.getElementById('userPoints').textContent = userPoints;
     document.getElementById('totalQuestions').textContent = quizData.length;
     document.getElementById('accuracy').textContent = '0%';
@@ -108,6 +109,7 @@ function confirmSubmit() {
     if (isCorrect) {
         correctCount++;
         userPoints += 150;
+        updateUserPoints(150); // Save to user storage
         streak++;
     } else {
         streak = 0;
@@ -208,8 +210,8 @@ function showRoundSummary() {
             <button class="modal-btn review" onclick="reviewRound()">Review round</button>
         `;
     }
-
-    localStorage.setItem('userPoints', userPoints);
+    updateUserPoints(0);
+    saveUserProgress(); 
     document.getElementById('summaryModal').classList.add('active');
 }
 

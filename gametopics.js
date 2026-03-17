@@ -1,115 +1,99 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn !== 'true') {
+   
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
         window.location.href = 'login.html';
         return;
     }
 
-    if (typeof loadUserProgress === 'function') {
-        loadUserProgress();
-    }
-
-    const storedUserJSON = localStorage.getItem('motivaUser');
+    const storedUser = JSON.parse(localStorage.getItem('motivaUser')) || {firstName: "STUDENT", lastName: ""};
     const nameDisplay = document.getElementById('userName');
+    if (nameDisplay) nameDisplay.innerText = `${storedUser.firstName} ${storedUser.lastName}`.toUpperCase();
 
-    if (storedUserJSON && nameDisplay) {
-        try {
-            const user = JSON.parse(storedUserJSON);
-            const fullName = `${user.firstName} ${user.lastName}`.toUpperCase();
-            nameDisplay.innerText = fullName;
-        } catch (error) {
-            console.error('Error parsing user data:', error);
-            nameDisplay.innerText = 'STUDENT';
-        }
-    }
-
-    const points = parseInt(localStorage.getItem('userPoints'), 10) || 0;
+    const points = parseInt(localStorage.getItem('userPoints')) || 0;
     const pointsDisplay = document.getElementById('userPoints');
     if (pointsDisplay) pointsDisplay.innerText = points.toLocaleString();
 
-    const round1ResultsRaw = localStorage.getItem('round1Results');
-    let round1Correct = 0;
-    if (round1ResultsRaw) {
-        try {
-            const round1Results = JSON.parse(round1ResultsRaw);
-            round1Correct = (round1Results || []).filter(item => item.correct || item.isCorrect).length;
-        } catch (error) {
-            console.warn('Invalid round1Results JSON:', error);
-        }
-    }
-
-    if (round1Correct >= 2) {
-        localStorage.setItem('lesson1Completed', 'true');
-    }
-
-    const isL1Done = localStorage.getItem('lesson1Completed') === 'true';
-    const l1Btn = document.getElementById('lesson1Btn');
-    if (isL1Done && l1Btn) {
-        l1Btn.innerHTML = 'Completed';
-    }
-
-    const l2Btn = document.getElementById('lesson2Btn');
-    if (isL1Done && l2Btn) {
-        l2Btn.disabled = false;
-        l2Btn.classList.remove('locked');
-        l2Btn.classList.add('continue');
-        l2Btn.innerHTML = 'Continue';
-    }
-
-    updateTopicProgress();
-
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', logout);
-    }
+   
+    refreshLessonStates();
+    updateProgressBar();
 });
 
-function updateTopicProgress() {
-    const lesson1 = localStorage.getItem('lesson1Completed') === 'true' ? 20 : 0;
-    const lesson2 = parseInt(localStorage.getItem('lesson2Progress'), 10) || 0;
-    const lesson3 = parseInt(localStorage.getItem('lesson3Progress'), 10) || 0;
-    const lesson4 = parseInt(localStorage.getItem('lesson4Progress'), 10) || 0;
-    const lesson5 = parseInt(localStorage.getItem('lesson5Progress'), 10) || 0;
 
-    const total = Math.min(100, lesson1 + lesson2 + lesson3 + lesson4 + lesson5);
-    const progressFill = document.getElementById('progressFill');
-    const overallProgress = document.getElementById('overallProgress');
+function refreshLessonStates() {
+    
+    const status = {
+        l1: localStorage.getItem('lesson1Completed') === 'true',
+        l2: localStorage.getItem('lesson2Completed') === 'true',
+        l3: localStorage.getItem('lesson3Completed') === 'true',
+        l4: localStorage.getItem('lesson4Completed') === 'true',
+        l5: localStorage.getItem('lesson5Completed') === 'true'
+    };
 
-    if (progressFill) progressFill.style.width = `${total}%`;
-    if (overallProgress) overallProgress.innerText = total;
-}
+    
+    const updateBtn = (id, isUnlocked, isDone, defaultText) => {
+        const btn = document.getElementById(id);
+        if (!btn) return;
 
-function goHome() {
-    window.location.href = 'homepage (1).html';
-}
-
-function viewLeaderboard() {
-    window.location.href = 'leaderboard.html';
-}
-
-function viewProfile() {
-    window.location.href = 'profile.html';
-}
-
-function logout() {
-    localStorage.setItem('isLoggedIn', 'false');
-    window.location.href = 'login.html';
-}
-
-function startLesson(lessonNumber) {
-    localStorage.setItem('currentLesson', lessonNumber.toString());
-
-    if (lessonNumber === 1) {
-        window.location.href = 'round1.html';
-        return;
-    }
-
-    if (lessonNumber === 2) {
-        const isL1Done = localStorage.getItem('lesson1Completed') === 'true';
-        if (!isL1Done) {
-            alert('Finish Lesson 1 first to unlock Lesson 2.');
-            return;
+        if (!isUnlocked) {
+            btn.disabled = true;
+            btn.innerHTML = '🔒 LOCKED';
+            btn.className = 'topic-btn locked'; 
+        } else {
+            btn.disabled = false;
+            btn.innerHTML = isDone ? '✓ COMPLETED' : defaultText;
+            btn.className = isDone ? 'topic-btn completed' : 'topic-btn active';
         }
-        window.location.href = 'lesson2-intro.html';
+    };
+
+    updateBtn('lesson1Btn', true, status.l1, 'START LESSON 1');        
+    updateBtn('lesson2Btn', status.l1, status.l2, 'CONTINUE TO L2');    
+    updateBtn('lesson3Btn', status.l2, status.l3, 'CONTINUE TO L3');  
+    updateBtn('lesson4Btn', status.l3, status.l4, 'REPAIR SYSTEM (L4)');
+    updateBtn('lesson5Btn', status.l4, status.l5, 'GRAND FINALE (L5)'); 
+}
+
+
+function updateProgressBar() {
+    const lessons = ['lesson1Completed', 'lesson2Completed', 'lesson3Completed', 'lesson4Completed', 'lesson5Completed'];
+    let completedCount = 0;
+
+    lessons.forEach(key => {
+        if (localStorage.getItem(key) === 'true') completedCount++;
+    });
+
+    const percentage = completedCount * 20; 
+    const fill = document.getElementById('progressFill');
+    const text = document.getElementById('overallProgress');
+
+    if (fill) fill.style.width = `${percentage}%`;
+    if (text) text.innerText = percentage;
+
+   
+    if (percentage === 100) console.log("CORE MODULES COMPLETE. STANDING BY FOR CERTIFICATION.");
+}
+
+
+function startLesson(num) {
+    const status = {
+        l1: localStorage.getItem('lesson1Completed') === 'true',
+        l2: localStorage.getItem('lesson2Completed') === 'true',
+        l3: localStorage.getItem('lesson3Completed') === 'true',
+        l4: localStorage.getItem('lesson4Completed') === 'true'
+    };
+
+   
+    if (num === 1) window.location.href = 'round1.html';
+    else if (num === 2 && status.l1) window.location.href = 'lesson2-intro.html';
+    else if (num === 3 && status.l2) window.location.href = 'lesson3.html';
+    else if (num === 4 && status.l3) window.location.href = 'lesson4.html';
+    else if (num === 5 && status.l4) window.location.href = 'lesson5.html';
+    else {
+        alert("⚠️ ACCESS DENIED: Complete the previous module to unlock this sector.");
     }
 }
+
+
+function goHome() { window.location.href = 'homepage (1).html'; }
+function logout() { localStorage.clear(); window.location.href = 'login.html'; }
+function viewLeaderboard() { window.location.href = 'leaderboard.html'; }
+function viewProfile() { window.location.href= 'profile.html'; }

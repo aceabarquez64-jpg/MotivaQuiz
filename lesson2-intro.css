@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #003366 100%);
     min-height: 100vh;
     margin: 0;
     display: flex;
@@ -9,7 +9,7 @@ body {
 
 
 header {
-    background: white;
+    background: #dfac05;
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
@@ -98,7 +98,7 @@ nav { display: flex; gap: 15px; }
 .experienced .multiplier { background: #fce4ec; color: #E91E63; }
 
 .professional { border-color: #9C27B0; }
-.professional .multiplier { background: #f3e5f5; color: #9C27B0; }
+.professional .multiplier { background: #f3e5f5; color: #c8baf0; }
 
 .back-btn {
     margin-top: 40px;
@@ -116,7 +116,7 @@ nav { display: flex; gap: 15px; }
 
 footer {
     text-align: center;
-    color: white;
+    color: #FFCC00;
     padding: 20px;
     font-weight: bold;
 }

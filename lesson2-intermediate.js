@@ -3,31 +3,31 @@ const questions = [
         q: "Which OS kernel part manages the CPU and Memory?",
         options: ["The Shell", "The Kernel", "The BIOS", "The Driver"],
         correct: 1,
-        desc: "The **Kernel** is the 'Heart' of the OS. It manages the communication between hardware and software."
+        desc: "The Kernel. is the 'Heart' of the OS. It manages the communication between hardware and software."
     },
     {
         q: "What type of software is 'Linux'?",
         options: ["Proprietary", "Shareware", "Open Source", "Firmware"],
         correct: 2,
-        desc: "**Open Source** software allows anyone to see, modify, and distribute the code freely."
+        desc: "Open Source. software allows anyone to see, modify, and distribute the code freely."
     },
     {
         q: "Which utility rearranges files to speed up disk access?",
         options: ["Disk Cleanup", "Defragmenter", "Task Manager", "Registry Editor"],
         correct: 1,
-        desc: "A **Defragmenter** organizes the 'scattered' data on a hard drive so the system can read it faster."
+        desc: "A Defragmenter. organizes the 'scattered' data on a hard drive so the system can read it faster."
     },
     {
         q: "What is the 'Virtual Memory' used for?",
         options: ["Storing Videos", "Simulating RAM", "Backup Data", "Internet Speed"],
         correct: 1,
-        desc: "**Virtual Memory/Simulating RAM** tricks the computer into thinking it has more RAM by using space on the hard drive."
+        desc: "Virtual Memory/Simulating RAM. tricks the computer into thinking it has more RAM by using space on the hard drive."
     },
     {
         q: "Which file system is standard for modern Windows versions?",
         options: ["FAT32", "NTFS", "EX-DOS", "MAC-FS"],
         correct: 1,
-        desc: "**NTFS** is the modern standard, offering better security and larger file support than FAT32."
+        desc: "NTFS. is the modern standard, offering better security and larger file support than FAT32."
     }
 ];
 
@@ -133,6 +133,8 @@ function completeLevel() {
    
     let total = parseInt(localStorage.getItem('userPoints')) || 0;
     localStorage.setItem('userPoints', total + intermediatePoints);
+    saveUserProgress();
+
 }
 
 function exitToLobby() { window.location.href = 'lesson2-intro.html'; }

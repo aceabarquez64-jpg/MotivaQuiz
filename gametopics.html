@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotivaQuizICT - Topic Progress</title>
     <link rel="stylesheet" href="gametopics.css">
+    <style>
+        .lesson-btn.completed { background-color: #2ecc71 !important; color: white; border: none; }
+        .lesson-btn.locked { background-color: #34495e !important; cursor: not-allowed; opacity: 0.6; }
+        .lesson-btn.active { background-color: #f1c40f !important; color: #000; font-weight: bold; }
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +21,7 @@
           <button onclick="goHome()" class="nav-btn">Home</button>
           <button onclick="viewLeaderboard()" class="nav-btn">Leaderboard</button>
           <button onclick="viewProfile()" class="nav-btn">Profile</button>
-          <button class="nav-btn" id="logoutBtn">Logout</button>
+          <button class="nav-btn" id="logoutBtn" onclick="logout()">Logout</button>
         </nav>
     </header>
 
@@ -34,46 +39,38 @@
             <div class="content-wrapper">
                 
                 <div class="user-card">
-                    <div class="user-avatar">👶</div>
-                    <div class="user-name" id="userName">BOSS</div>
-                    <div class="user-title">STUDENT</div>
+                    <div class="user-avatar">🎓</div>
+                    <div class="user-name" id="userName">STUDENT_NAME</div>
+                    <div class="user-title">ACT ICT CANDIDATE</div>
                     <div class="user-stats">
-                        Rank #<span id="userRank">100</span> - Points: <span id="userPoints">0</span>
+                        Rank #<span id="userRank">--</span> • Points: <span id="userPoints">0</span>
                     </div>
                 </div>
 
                 <div class="lessons-list">
                     <div class="lesson-item">
                         <span class="lesson-name">Lesson 1: Hardware Basics</span>
-                        <button class="lesson-btn continue" onclick="startLesson(1)">Continue</button>
+                        <button id="lesson1Btn" class="lesson-btn active" onclick="startLesson(1)">START</button>
                     </div>
                     
                     <div class="lesson-item">
-                        <span class="lesson-name" id="lesson2Name">Lesson 2: Software & OS</span>
-                        <button id="lesson2Btn" class="lesson-btn locked" disabled onclick="startLesson(2)">
-                            <span class="lock-icon" id="lesson2Icon">🔒</span>
-                        </button>
+                        <span class="lesson-name">Lesson 2: Software & OS</span>
+                        <button id="lesson2Btn" class="lesson-btn locked" onclick="startLesson(2)">LOCKED</button>
                     </div>
                     
                     <div class="lesson-item">
                         <span class="lesson-name">Lesson 3: Networking</span>
-                        <button id="lesson3Btn" class="lesson-btn locked" disabled>
-                            <span class="lock-icon">🔒</span>
-                        </button>
+                        <button id="lesson3Btn" class="lesson-btn locked" onclick="startLesson(3)">LOCKED</button>
                     </div>
                     
                     <div class="lesson-item">
                         <span class="lesson-name">Lesson 4: Troubleshooting</span>
-                        <button id="lesson4Btn" class="lesson-btn locked" disabled>
-                            <span class="lock-icon">🔒</span>
-                        </button>
+                        <button id="lesson4Btn" class="lesson-btn locked" onclick="startLesson(4)">LOCKED</button>
                     </div>
                     
                     <div class="lesson-item">
-                        <span class="lesson-name">Lesson 5: Final Assessment</span>
-                        <button id="lesson5Btn" class="lesson-btn locked" disabled>
-                            <span class="lock-icon">🔒</span>
-                        </button>
+                        <span class="lesson-name">Lesson 5: Animation Quest</span>
+                        <button id="lesson5Btn" class="lesson-btn locked" onclick="startLesson(5)">LOCKED</button>
                     </div>
                 </div>
             </div>
@@ -83,8 +80,7 @@
     <footer>
         ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
     </footer>
-    <script src="progress-manager.js"></script>
+    
     <script src="gametopics.js"></script>
 </body>
-
 </html>

@@ -5,7 +5,7 @@
             --green:   #32CD32;
             --red:     #FF4500;
             --gold:    #FFD700;
-            --bg:      linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg:      linear-gradient(135deg, #003366 50%, #FFCC00 50%);
             --card-bg: #ffffff;
             --radius:  22px;
             --shadow:  0 6px 20px rgba(0,0,0,0.12);

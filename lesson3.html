@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1: Networking Uplink</title>
+    <link rel="stylesheet" href="gametopics.css"> <style>
+        
+        .hidden { display: none !important; }
+        .terminal-box { background: #0a0a0a; color: #00ff00; padding: 20px; font-family: monospace; border: 1px solid #333; }
+        .review-log { border-left: 3px solid #00a8ff; padding-left: 15px; margin-bottom: 20px; background: rgba(0, 168, 255, 0.1); padding: 10px; }
+    </style>
+</head>
+<body style="background-color: #050505; color: #fff; font-family: Arial, sans-serif;">
+
+    <header style="padding: 20px; border-bottom: 1px solid #333; display: flex; justify-content: space-between;">
+        <div style="color: #011453; font-weight: bold;">MODULE 3: NETWORKING</div>
+        <div id="displayPlayer">OPERATOR: SYNCHRONIZING...</div>
+    </header>
+
+    <div class="container" style="max-width: 800px; margin: 40px auto;">
+        
+        <div id="bootScreen" class="terminal-box">
+            <div id="terminalOutput"></div>
+        </div>
+
+        <div id="quizInterface" class="hidden">
+            <div id="systemMonitor" style="display: flex; justify-content: space-between; margin-bottom: 20px; color: #000000;">
+                <span id="displayPoints">UPLINK: 0%</span>
+                <span>STATUS: SECURE</span>
+            </div>
+            
+            <div style="background: #111; border: 1px solid #000000; padding: 30px; border-radius: 5px;">
+                <h2 style="color: #00a8ff; margin-top: 0;">> INCOMING TRANSMISSION:</h2>
+                <p id="questionText" style="font-size: 1.2rem; line-height: 1.5;"></p>
+                
+                <textarea id="sentenceInput" rows="4" style="width: 100%; width: -webkit-fill-available; margin-top: 20px; background: #000; color: #00ff00; border: 1px solid #00a8ff; padding: 15px; font-family: monospace;" placeholder="Type your analysis here (min 15 characters)... press Enter to submit."></textarea>
+                
+                <button onclick="evaluateSentence()" style="margin-top: 15px; background: #00a8ff; color: #000; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold;">TRANSMIT DATA</button>
+            </div>
+        </div>
+
+        <div id="reviewSection" class="hidden terminal-box">
+            <h1 style="color: #00a8ff; text-align: center;">NETWORK UPLINK COMPLETE</h1>
+            <h2 style="text-align: center;">FINAL RANK: <span id="performanceGrade"></span></h2>
+            
+            <div id="reviewContainer" style="margin-top: 30px;">
+                </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button onclick="exitToLobby()" style="background: #ffcc00; color: #000; border: none; padding: 15px 30px; font-size: 1.1rem; cursor: pointer; font-weight: bold;">RETURN TO DASHBOARD</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="lesson3.js"></script>
+</body>
+</html>

@@ -36,7 +36,7 @@ let rookiePoints = 0;
 let isAnimating = false; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+   
     const storedUserJSON = localStorage.getItem('motivaUser');
     let userName = "BOSS";
     if (storedUserJSON) {
@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch(e) { console.error("Identity data error."); }
     }
 
-  
+   
     const playerDisplay = document.getElementById('displayPlayer');
     if (playerDisplay) playerDisplay.innerText = "OPERATOR: " + userName;
 
-    
+   
     runBootSequence(userName);
 });
 
@@ -90,7 +90,7 @@ function loadQuestion() {
     isAnimating = false; 
     const qData = questions[currentIdx];
     
-    
+   
     document.getElementById('systemMsg').innerText = `[SYSTEM]: Analyzing Query 0${currentIdx + 1}...`;
     document.getElementById('questionText').innerText = qData.q;
     
@@ -98,7 +98,7 @@ function loadQuestion() {
     document.getElementById('progValue').innerText = progressPercent;
     document.getElementById('progFill').style.width = progressPercent + "%";
 
-    
+  
     const optionsGrid = document.getElementById('optionsGrid');
     optionsGrid.innerHTML = "";
 
@@ -151,11 +151,10 @@ function completeLevel() {
     if (options) options.classList.add('hidden');
     if (questionBox) questionBox.classList.add('hidden');
 
-    
+  
     if (review) {
         review.classList.remove('hidden');
-        
-       
+          
         const gradeDisplay = document.getElementById('performanceGrade');
         if (gradeDisplay) {
             if (rookiePoints >= 100) gradeDisplay.innerText = "S-RANK";
@@ -164,14 +163,12 @@ function completeLevel() {
             else gradeDisplay.innerText = "C-RANK";
         }
 
-        
         const nameSpan = document.querySelector('.user-name-span');
         const userData = localStorage.getItem('motivaUser');
         if (nameSpan && userData) {
             nameSpan.innerText = JSON.parse(userData).firstName.toUpperCase();
         }
-
-       
+ 
         const container = document.getElementById('reviewContainer');
         if (container) {
             container.innerHTML = ""; 
@@ -187,7 +184,7 @@ function completeLevel() {
         }
     }
 
-    
+   
     let totalPoints = parseInt(localStorage.getItem('userPoints')) || 0;
     localStorage.setItem('userPoints', totalPoints + rookiePoints);
 }

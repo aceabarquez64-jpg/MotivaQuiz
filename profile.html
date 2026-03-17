@@ -3,55 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotivaQuiz - Profile</title>
+    <title>ACT Student Profile | MotivaQuiz</title>
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo">MOTIVAQUIZ</div>
-        <div class="topic-title">STUDENT PROFILE</div>
-        <div class="user-stats">Rank #<span id="displayRank">--</span></div>
-    </div>
+    <header class="act-header">
+    <button onclick="goToHome()" class="back-btn">⬅ BACK TO MISSION CONTROL</button>
+    <div class="logo-text">ACT PROFILE SECTOR</div>
+    </header>   
 
     <div class="profile-container">
-        <div class="profile-sidebar">
-            <div class="avatar-large">👤</div>
-            <h2 id="profName">STUDENT NAME</h2>
-            <p id="profEmail">student@act.edu.ph</p>
-            <button class="back-btn" onclick="window.location.href='homepage (1).html'">Back to Dashboard</button>
+        <div class="id-card">
+            <div class="id-texture"></div> <div class="user-info">
+                <div class="avatar-circle">🎓</div>
+                <div class="text-data">
+                    <h1 id="profName">LOADING...</h1>
+                    <p class="rank-tag" id="profRank">CANDIDATE</p>
+                    <p class="campus">ACT - BULACAO CAMPUS</p>
+                </div>
+            </div>
+            <div class="id-footer">
+                <div class="stat-item">
+                    <span class="label">TOTAL SCORE</span>
+                    <span class="value" id="profPoints">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">GLOBAL PROGRESS</span>
+                    <span class="value" id="profPercent">0%</span>
+                </div>
+            </div>
         </div>
 
-        <div class="profile-main">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>Total Points</h3>
-                    <p class="stat-value" id="profPoints">0</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Pre-Test Score</h3>
-                    <p class="stat-value" id="profPretest">0/5</p>
-                </div>
+        <div class="section-title">COURSE PROGRESSION</div>
+        <div class="progress-grid" id="lessonTracker">
             </div>
 
-            <div class="info-section">
-                <h3>Academic Progress</h3>
-                <div class="progress-container">
-                    <p>Computer Hardware Module</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="profProgress" style="width: 0%;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="danger-zone">
-                <button class="logout-link" onclick="handleLogout()">Logout of System</button>
-            </div>
+        <div class="section-title">ACHIEVEMENT BADGES</div>
+        <div class="badge-vault" id="badgeVault">
+            <div class="badge locked" id="badge1">🔌<br><small>Hardware</small></div>
+            <div class="badge locked" id="badge2">💿<br><small>Software</small></div>
+            <div class="badge locked" id="badge3">🌐<br><small>Network</small></div>
+            <div class="badge locked" id="badge4">🔧<br><small>Repair</small></div>
+            <div class="badge locked" id="badge5">🎨<br><small>Animator</small></div>
         </div>
     </div>
-
-    <footer>
-        ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS
-    </footer>
 
     <script src="profile.js"></script>
 </body>

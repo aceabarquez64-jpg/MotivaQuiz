@@ -30,24 +30,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function selectDifficulty(level) {
+   
     localStorage.setItem('lesson2Difficulty', level);
+    
+   
+    const currentPoints = parseInt(localStorage.getItem('userPoints')) || 0;
+    
     
     if (level === 'rookie') {
         window.location.href = 'lesson2-rookie.html';
     } 
     else if (level === 'intermediate') {
-        
-        const currentPoints = parseInt(localStorage.getItem('userPoints')) || 0;
-        
         if (currentPoints >= 100) {
             window.location.href = 'lesson2-intermediate.html';
         } else {
-            alert(`INSUFFICIENT DATA: You need at least 100 points to unlock INTERMEDIATE protocols! (Current: ${currentPoints})`);
+            alert(`INSUFFICIENT DATA: 100 points required. (Current: ${currentPoints})`);
         }
     } 
+    else if (level === 'experienced') {
+        if (currentPoints >= 200) {
+            window.location.href = 'lesson2-experienced.html';
+        } else {
+            alert(`ACCESS DENIED: 200 points required. (Current: ${currentPoints})`);
+        }
+    } 
+   
+    else if (level === 'expert' || level === 'professional') {
+        if (currentPoints >= 400) {
+           
+            window.location.href = 'lesson2-professional.html'; 
+        } else {
+            alert(`SYSTEM LOCK: ARCHITECT clearance requires 400 points. (Current: ${currentPoints})`);
+        }
+    }
     else {
-        
-        alert(`ACCESS DENIED: The ${level.toUpperCase()} protocols are still being encrypted.`);
+       
+        alert(`PROTOCOL ERROR: "${level}" is not recognized by the mainframe.`);
     }
 }
 

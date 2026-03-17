@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: Expert - System Architect</title>
+    <link rel="stylesheet" href="lesson2-professional.css">
+</head>
+<body>
+    <div class="perspective-wrapper">
+        <div class="game-container expert-3d-panel">
+            <div id="bootScreen" class="boot-screen">
+                <div id="terminalOutput"></div>
+            </div>
+
+            <div id="quizInterface" class="hidden">
+                <header class="expert-header">
+                    <div class="status-bar">
+                        <span id="displayPlayer">ARCHITECT: ---</span>
+                        <span id="displayPoints">NEURAL SYNC: 0%</span>
+                    </div>
+                </header>
+
+                <div class="main-stage">
+                    <div id="systemMonitor">
+                        <p class="query-label">> ARCHITECT ANALYSIS REQUIRED:</p>
+                        <h2 id="questionText">Initializing...</h2>
+                        
+                        <div class="input-area">
+                            <textarea id="sentenceInput" placeholder="Enter technical analysis..."></textarea>
+                            <button id="executeBtn" onclick="evaluateSentence()">SYNC CORE</button>
+                        </div>
+                    </div>
+
+                    <div id="reviewSection" class="hidden">
+                        <div class="rank-display">
+                            <p>SESSION COMPLETE - FINAL GRADE:</p>
+                            <h1 id="performanceGrade">--</h1>
+                        </div>
+                        <div id="reviewContainer" class="review-scroll"></div>
+                        <button class="exit-btn" onclick="exitToLobby()">SAVE & DISCONNECT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lesson2-professional.js"></script>
+</body>
+</html>

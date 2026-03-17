@@ -1,0 +1,79 @@
+body { 
+    background: #001224; 
+    color: #ffcc00; 
+    font-family: 'Courier New', monospace; 
+    margin: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container { 
+    width: 900px; 
+    border: 2px solid #ffcc00; 
+    padding: 30px; 
+    background: #002147; 
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.2); 
+}
+
+.hidden { display: none !important; }
+
+
+.gold-glow { text-shadow: 0 0 10px #ffcc00; }
+.progress-track { background: #001224; height: 12px; border: 1px solid #ffcc00; margin: 10px 0; }
+.progress-fill { background: #ffcc00; height: 100%; width: 0%; transition: 0.4s ease; box-shadow: 0 0 10px #ffcc00; }
+
+
+.input-section {
+    display: flex;
+    margin-top: 30px;
+    background: #001224;
+    border: 1px solid #ffcc00;
+    padding: 10px;
+}
+
+.prompt-symbol {
+    color: #ffcc00;
+    font-size: 1.2rem;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#answerInput {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+    outline: none;
+    text-transform: uppercase; 
+}
+
+#answerInput::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+#submitBtn {
+    background: #ffcc00;
+    color: #002147;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#submitBtn:hover { background: #fff; }
+
+
+.input-correct { border-color: #4caf50 !important; box-shadow: 0 0 15px #4caf50; }
+.input-wrong { border-color: #f44336 !important; box-shadow: 0 0 15px #f44336; }
+
+
+#performanceGrade { font-size: 70px; color: #ffcc00; text-shadow: 0 0 20px #ffcc00; margin: 5px 0; text-align: center; }
+.review-scroll-area { max-height: 350px; overflow-y: auto; padding-right: 10px; margin: 20px 0; border: 1px solid rgba(255,204,0,0.3); padding: 15px; }
+.review-item { border-bottom: 1px solid rgba(255,204,0,0.3); padding: 15px 0; font-size: 14px; line-height: 1.4; color: #fff;}
+.review-item strong { color: #ffcc00; }
+.continue-btn { background: #ffcc00; color: #002147; padding: 15px 40px; font-weight: bold; border: none; cursor: pointer; display: block; margin: 20px auto 0 auto; transition: 0.3s; }
+.continue-btn:hover { background: #fff; }
+

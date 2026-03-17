@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: Experienced - OS Command Line</title>
+    <link rel="stylesheet" href="lesson2-experienced.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="bootScreen" class="boot-screen">
+            <div class="terminal-text" id="terminalOutput"></div>
+            <div class="blinking-cursor" style="color: #ffcc00;">_</div>
+        </div>
+
+        <div id="quizInterface" class="hidden">
+            <header class="game-header">
+                <div class="user-info">
+                    <span id="displayPlayer" class="gold-glow">ADMIN: BOSS</span>
+                    <span id="displayPoints" class="gold-glow">SYS-POINTS: 0</span>
+                </div>
+                <div class="level-tag">CLEARANCE: EXPERIENCED</div>
+            </header>
+
+            <div class="main-stage">
+                <div class="system-monitor" id="systemMonitor">
+                    <div class="progress-container">
+                        <div class="progress-text">Database Extraction: <span id="progValue">0</span>%</div>
+                        <div class="progress-track"><div id="progFill" class="progress-fill"></div></div>
+                    </div>
+                    
+                    <div class="question-box" id="questionBox">
+                        <p class="system-msg" id="systemMsg">[AWAITING MANUAL OVERRIDE]...</p>
+                        <h2 id="questionText">Loading Command Prompt...</h2>
+                        
+                        <div class="input-section" id="inputSection">
+                            <span class="prompt-symbol">ACT-SYS:\> </span>
+                            <input type="text" id="answerInput" placeholder="Enter system command or term..." autocomplete="off">
+                            <button id="submitBtn" onclick="submitAnswer()">EXECUTE</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reviewSection" class="hidden">
+                    <div class="report-header">
+                        <div class="rank-box">
+                            <span class="rank-label">SYSTEM RANK:</span>
+                            <h1 id="performanceGrade">--</h1>
+                        </div>
+                        <h2 class="gold-glow">MANUAL OVERRIDE DEBRIEF</h2>
+                        <p>Admin Identity: <span class="user-name-span">BOSS</span></p>
+                    </div>
+                    
+                    <div id="reviewContainer" class="review-scroll-area"></div>
+                    <button class="continue-btn" onclick="exitToLobby()">COMMIT TO MAINFRAME</button>
+                </div>
+            </div>
+
+            <footer>ASIAN COLLEGE OF TECHNOLOGY – BULACAO CAMPUS</footer>
+        </div>
+    </div>
+    <script src="lesson2-experienced.js"></script>
+</body>
+</html>
