@@ -6,7 +6,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FFCC00 50%, #003366 50%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -22,14 +22,14 @@
         .logo {
             font-size: 36px;
             font-weight: bold;
-            color: white;
+            color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .topic-title {
             font-size: 24px;
             font-weight: bold;
-            color: white;
+            color: rgb(35, 89, 128);
             text-align: center;
             flex: 1;
         }
@@ -37,7 +37,7 @@
         .user-stats {
             font-size: 18px;
             font-weight: bold;
-            color: white;
+            color: rgb(243, 17, 17);
         }
 
         .lobby-container {
